@@ -1,0 +1,82 @@
+{
+    "common": {
+        "name": "vis-flexcontrol",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "vis flexibel Control",
+        "titleLang": {
+            "en": "vis flexibel Control",
+            "de": "gegenüber flexibler Steuerung",
+            "ru": "гибкая система управления",
+            "pt": "vis controle flexível",
+            "nl": "vis flexibel Control",
+            "fr": "contrôle flexible vis",
+            "it": "vis flexibel controllo",
+            "es": "vis flexibel control",
+            "pl": "z elastycznym sterowaniem",
+            "zh-cn": "vis 柔性控制"
+        },
+        "desc": {
+            "en": "vis-flexcontrol",
+            "de": "vis-flexcontrol",
+            "ru": "вис-гибкий контроль",
+            "pt": "vis-flexcontrol",
+            "nl": "vis-flexcontrol",
+            "fr": "contrôle vis-flex",
+            "it": "vis-flexcontrol",
+            "es": "vis-flex control",
+            "pl": "vis-flexcontrol",
+            "zh-cn": "vis-flexcontrol"
+        },
+        "authors": [
+            "Buchi <temp1@act4you.de>"
+        ],
+        "keywords": [
+            "ioBroker",
+            "template",
+            "Smart Home",
+            "home automation"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "vis-flexcontrol.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/gerbuchner/ioBroker.vis-flexcontrol/main/admin/vis-flexcontrol.png",
+        "readme": "https://github.com/gerbuchner/ioBroker.vis-flexcontrol/blob/main/README.md",
+        "loglevel": "info",
+        "restartAdapters": [
+            "vis"
+        ],
+        "localLinks": {
+            "_default": "%web_protocol%://%ip%:%web_port%/vis/edit.html"
+        },
+        "onlyWWW": true,
+        "noConfig": true,
+        "singleton": true,
+        "type": "visualization-widgets",
+        "mode": "once",
+        "dependencies": [
+            "vis"
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
