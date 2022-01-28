@@ -1,7 +1,7 @@
 /*
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.8"
+    version: "0.0.9"
 
     Copyright 2022 Buchi temp1@act4you.de
 */
@@ -32,7 +32,7 @@ $.extend(
 
 // this code can be placed directly in vis-flexcontrol.html
 vis.binds["vis-flexcontrol"] = {
-    version: "0.0.8",
+    version: "0.0.9",
     showVersion: function () {
         if (vis.binds["vis-flexcontrol"].version) {
             console.log('Version vis-flexcontrol: ' + vis.binds["vis-flexcontrol"].version);
@@ -69,7 +69,7 @@ vis.binds["vis-flexcontrol"] = {
         text += '<div class="vis-widget" style="top: 8px; left: 110px; width: 50px; height: 14px; color: rgb(255, 255, 255); z-index: 3; text-align: right; font-size: small; color: rgb(255, 255, 255);">';
         text += '    <div class="vis-widget-body">';
         text += '        <div class="istWert" style="color: rgb(255, 255, 255);">';
-        text += '             ' + vis.states[data.oidValIst + '.val'] + ' ' + data.valEinheit;
+        text += '             ' + vis.states[data.oidValIst + '.val'] + ' ' + data.valEinheitIst;
         text += '        </div>';
         text += '    </div>';
         text += '</div>';
@@ -89,7 +89,7 @@ vis.binds["vis-flexcontrol"] = {
         text += '<div class="vis-widget" style="top: 44px; left: 40px; width: 74px; height: 16px; z-index: 3; text-align: right; font-size: medium; color: rgb(255, 255, 255);">';
         text += '    <div class="vis-widget-body">';
         text += '        <div class="sollWert" style="color: rgb(255, 255, 255);">';
-        text += '             ' + vis.states[data.oidValSoll + '.val'] + ' ' + data.valEinheit;
+        text += '             ' + vis.states[data.oidValSoll + '.val'] + ' ' + data.valEinheitSoll;
         text += '        </div>';
         text += '    </div>';
         text += '</div>';
@@ -150,7 +150,7 @@ vis.binds["vis-flexcontrol"] = {
 
 // #region IstWert        
         function onChangeIst(e, newVal, oldVal) {
-            $div.find('.istWert').html(parseFloat(newVal).toFixed(data.dacIst) + ' ' + data.valEinheit);
+            $div.find('.istWert').html(parseFloat(newVal).toFixed(data.dacIst) + ' ' + data.valEinheitIst);
         }
         if (data.oidValIst) {
             vis.states.bind(data.oidValIst + '.val', onChangeIst);
@@ -163,7 +163,7 @@ vis.binds["vis-flexcontrol"] = {
 
 // #region SollWert        
 function onChangeSoll(e, newVal, oldVal) {
-    $div.find('.sollWert').html(parseFloat(newVal).toFixed(data.dacSoll) + ' ' + data.valEinheit);
+    $div.find('.sollWert').html(parseFloat(newVal).toFixed(data.dacSoll) + ' ' + data.valEinheitSoll);
 }
 if (data.oidValSoll) {
     vis.states.bind(data.oidValSoll + '.val', onChangeSoll);
