@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "vis-flexcontrol",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {
-            "0.0.1": {
+            "0.0.2": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
@@ -19,7 +19,7 @@
         "title": "vis flexibel Control",
         "titleLang": {
             "en": "vis flexibel Control",
-            "de": "gegenüber flexibler Steuerung",
+            "de": "Flexible Steuerung",
             "ru": "гибкая система управления",
             "pt": "vis controle flexível",
             "nl": "vis flexibel Control",

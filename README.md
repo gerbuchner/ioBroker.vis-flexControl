@@ -13,7 +13,7 @@
 
 ## vis-flexcontrol adapter for ioBroker
 
-Describe your project here
+Flexible Steuerung von Klima-/Luft-/Heizungs-Geräten.
 
 ## Developer manual
 This section is intended for the developer. It can be deleted later
