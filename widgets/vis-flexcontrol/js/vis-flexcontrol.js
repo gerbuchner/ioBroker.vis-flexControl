@@ -50,7 +50,7 @@ vis.binds["vis-flexcontrol"] = {
 
         var text = '';
         text += '<!-- Hintergrund Header -->';
-        text += '<div class="vis-widget vis-flexcontrol-control-header ' + data.class + '" style="background-color: black; overflow: visible; width: 170px; height: 30px; border: 1px solid rgb(136, 136, 136); left: 0px; top: 0px; z-index: 2;" id="' + widgetID + '">';
+        text += '<div class="vis-widget vis-flexcontrol-control-header ' + data.class + '" style="background-color: #222222; overflow: visible; width: 170px; height: 30px; border: 1px solid rgb(136, 136, 136); left: 0px; top: 0px; z-index: 2;" id="' + widgetID + '">';
         text += '    <div style="width: 100%; height: 0px; background-color: black;">';
         text += '    </div>';
         text += '    <div style="position: absolute; top: 2px; left: 15px; color: black;"></div>';
