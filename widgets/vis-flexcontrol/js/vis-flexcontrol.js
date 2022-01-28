@@ -1,7 +1,7 @@
 /*
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.7"
+    version: "0.0.8"
 
     Copyright 2022 Buchi temp1@act4you.de
 */
@@ -32,7 +32,7 @@ $.extend(
 
 // this code can be placed directly in vis-flexcontrol.html
 vis.binds["vis-flexcontrol"] = {
-    version: "0.0.7",
+    version: "0.0.8",
     showVersion: function () {
         if (vis.binds["vis-flexcontrol"].version) {
             console.log('Version vis-flexcontrol: ' + vis.binds["vis-flexcontrol"].version);
@@ -110,36 +110,36 @@ vis.binds["vis-flexcontrol"] = {
 
         text += '<!-- Modus 0 -->';
         text += '<div class="vis-widget" style="width: 30px; height: 30px; left: 7px; top: 80px; z-index: 2;">';
-        text += '    <div style="width: 30px; height: 30px; cursor: pointer;">';
-        text += '        <img class="imgMode0" src="' + data.imgMode0Off + '" width="100%">';
+        text += '    <div style="width: 30px; height: 30px;">';
+        text += '        <img class="imgMode0" src="" width="100%" style="cursor: pointer;">';
         text += '    </div>';
         text += '</div>';
 
         text += '<!-- Modus 1 -->';
         text += '<div class="vis-widget" style="width: 30px; height: 30px; left: 37px; top: 80px; z-index: 2;">';
-        text += '    <div style="width: 30px; height: 30px; cursor: pointer;">';
-        text += '        <img class="imgMode1" src="' + data.imgMode1Off + '" width="100%">';
+        text += '    <div style="width: 30px; height: 30px;">';
+        text += '        <img class="imgMode1" src="" width="100%" style="cursor: pointer;">';
         text += '    </div>';
         text += '</div>';
 
         text += '<!-- Modus 2 -->';
         text += '<div class="vis-widget" style="width: 30px; height: 30px; left: 67px; top: 80px; z-index: 2;">';
-        text += '    <div style="width: 30px; height: 30px; cursor: pointer;">';
-        text += '        <img class="imgMode2" src="' + data.imgMode2Off + '" width="100%">';
+        text += '    <div style="width: 30px; height: 30px;">';
+        text += '        <img class="imgMode2" src="" width="100%" style="cursor: pointer;">';
         text += '    </div>';
         text += '</div>';
 
         text += '<!-- Modus 3 -->';
         text += '<div class="vis-widget" style="width: 30px; height: 30px; left: 97px; top: 80px; z-index: 2;">';
-        text += '    <div style="width: 30px; height: 30px; cursor: pointer;">';
-        text += '        <img class="imgMode3" src="' + data.imgMode3Off + '" width="100%">';
+        text += '    <div style="width: 30px; height: 30px;">';
+        text += '        <img class="imgMode3" src="" width="100%" style="cursor: pointer;">';
         text += '    </div>';
         text += '</div>';
 
         text += '<!-- Modus 4 -->';
         text += '<div class="vis-widget" style="width: 30px; height: 30px; left: 127px; top: 80px; z-index: 2;">';
-        text += '    <div style="width: 30px; height: 30px; cursor: pointer;">';
-        text += '        <img class="imgMode4" src="' + data.imgMode4Off + '" width="100%">';
+        text += '    <div style="width: 30px; height: 30px;">';
+        text += '        <img class="imgMode4" src="" width="100%" style="cursor: pointer;">';
         text += '    </div>';
         text += '</div>';
 
@@ -206,7 +206,7 @@ $div.find('.sollPlus').on('click', function (e){
 // #region Modus0
 function onChangeMode0(e, newVal, oldVal) {
     var img = '';
-    if (newVal == data.valueMode0) { img = data.imgMode0On; } else { img = data.imgMode0Off; }
+    if (newVal == data.valueMode0) { img = data.imgModeOn0; } else { img = data.imgModeOff0; }
     if (data.showMode0) {
         $div.find('.imgMode0').attr('src', img);
     }
@@ -227,11 +227,10 @@ $div.find('.imgMode0').on('click', function (e){
 });
 // #endregion
 
-
 // #region Modus1
 function onChangeMode1(e, newVal, oldVal) {
     var img = '';
-    if (newVal == data.valueMode1) { img = data.imgMode1On; } else { img = data.imgMode1Off; }
+    if (newVal == data.valueMode1) { img = data.imgModeOn1; } else { img = data.imgModeOff1; }
     if (data.showMode1) {
         $div.find('.imgMode1').attr('src', img);
     }
@@ -255,7 +254,7 @@ $div.find('.imgMode1').on('click', function (e){
 // #region Modus2
 function onChangeMode2(e, newVal, oldVal) {
     var img = '';
-    if (newVal == data.valueMode2) { img = data.imgMode2On; } else { img = data.imgMode2Off; }
+    if (newVal == data.valueMode2) { img = data.imgModeOn2; } else { img = data.imgModeOff2; }
     if (data.showMode2 == true) {
         $div.find('.imgMode2').attr('src', img);
     }
@@ -279,7 +278,7 @@ $div.find('.imgMode2').on('click', function (e){
 // #region Mode3
 function onChangeMode3(e, newVal, oldVal) {
     var img = '';
-    if (newVal == data.valueMode3) { img = data.imgMode3On; } else { img = data.imgMode3Off; }
+    if (newVal == data.valueMode3) { img = data.imgModeOn3; } else { img = data.imgModeOff3; }
     if (data.showMode3) {
         $div.find('.imgMode3').attr('src', img);
     }
@@ -303,7 +302,7 @@ $div.find('.imgMode3').on('click', function (e){
 // #region Mode4
 function onChangeMode4(e, newVal, oldVal) {
     var img = '';
-    if (newVal == data.valueMode4) { img = data.imgMode4On; } else { img = data.imgMode4Off; }
+    if (newVal == data.valueMode4) { img = data.imgModeOn4; } else { img = data.imgModeOff4; }
     if (data.showMode4) {
         $div.find('.imgMode4').attr('src', img);
     }

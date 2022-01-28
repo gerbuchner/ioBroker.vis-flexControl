@@ -1,7 +1,7 @@
 <!--
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.7"
+    version: "0.0.8"
 
     Copyright 2022 Buchi temp1@act4you.de
 -->
@@ -173,11 +173,7 @@ if (vis.editMode) {
         data-vis-prev='<img src="widgets/vis-flexcontrol/img/vis-flexcontrol.png"></img>'
         data-vis-attrs="headerText;oidValIst/id;dacIst;oidValSoll/id;dacSoll;valEinheit;valStep;"
         data-vis-attrs0="group.onoff;oidOnOff/id;imgOn/image;imgOff/image;"
-        data-vis-attrs1="group.mode0;showMode0/checkbox;oidMode0/id;valueMode0/number;imgMode0On/image;imgMode0Off/image;"
-        data-vis-attrs2="group.mode1;showMode1/checkbox;oidMode1/id;valueMode1/number;imgMode1On/image;imgMode1Off/image;"
-        data-vis-attrs3="group.mode2;showMode2/checkbox;oidMode2/id;valueMode2/number;imgMode2On/image;imgMode2Off/image;"
-        data-vis-attrs4="group.mode3;showMode3/checkbox;oidMode3/id;valueMode3/number;imgMode3On/image;imgMode3Off/image;"
-        data-vis-attrs5="group.mode4;showMode4/checkbox;oidMode4/id;valueMode4/number;imgMode4On/image;imgMode4Off/image;"
+        data-vis-attrs1="group.mode/byindex;showMode(0-4)/checkbox;oidMode(0-4)/id;valueMode(0-4)/number;imgModeOn(0-4)/image;imgModeOff(0-4)/image;"
         data-vis-set="vis-flexcontrol"
         data-vis-type="Control"
         data-vis-name="Flexible Control">
@@ -186,7 +182,7 @@ if (vis.editMode) {
         </div>
         <% vis.binds["vis-flexcontrol"].createWidget(this.data.wid, this.view, this.data, this.style); %>
     </script>
- 
+    
 
 <!-- #region org -->   
 <!--
