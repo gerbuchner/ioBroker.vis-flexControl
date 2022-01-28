@@ -99,7 +99,8 @@
     You can do "if" conditions and "for" cycles.
 
 -->
-
+           
+<!-- #region Sprache -->
 <script language="javascript">
 // add translations for edit mode
 if (vis.editMode) {
@@ -128,6 +129,11 @@ if (vis.editMode) {
          "group_mode2":       {"en": "Mode[2]",                      "de": "Modus[2]",                          "ru": ""},
          "group_mode3":       {"en": "Mode[3]",                      "de": "Modus[3]",                          "ru": ""},
          "group_mode4":       {"en": "Mode[4]",                      "de": "Modus[4]",                          "ru": ""},
+         "showMode0":         {"en": "Visible",                      "de": "Amzeigen",                          "ru": ""},
+         "showMode1":         {"en": "Visible",                      "de": "Amzeigen",                          "ru": ""},
+         "showMode2":         {"en": "Visible",                      "de": "Amzeigen",                          "ru": ""},
+         "showMode3":         {"en": "Visible",                      "de": "Amzeigen",                          "ru": ""},
+         "showMode4":         {"en": "Visible",                      "de": "Amzeigen",                          "ru": ""},
          "oidMode0":          {"en": "Object ID",                    "de": "Objekt ID",                         "ru": ""},
          "oidMode1":          {"en": "Object ID",                    "de": "Objekt ID",                         "ru": ""},
          "oidMode2":          {"en": "Object ID",                    "de": "Objekt ID",                         "ru": ""},
@@ -157,193 +163,31 @@ if (vis.editMode) {
         });
 }
 </script>
-
-
-
-
+<!-- #endregion -->  
+  
 <script id="tplVis-flexcontrolShowInstance"
         type="text/ejs"
         class="vis-tpl"
         data-vis-prev='<img src="widgets/vis-flexcontrol/img/vis-flexcontrol.png"></img>'
         data-vis-attrs="headerText;oidValIst/id;oidValSoll/id;valEinheit;valStep;"
         data-vis-attrs0="group.onoff;oidOnOff/id;imgOn/image;imgOff/image;"
-        data-vis-attrs1="group.mode0;oidMode0/id;condMode0/nselect,,&gt;,&lt;,3,4,5;valueMode0/number;imgMode0On/image;imgMode0Off/image;"
-        data-vis-attrs2="group.mode1;oidMode1/id;valueMode1/number;imgMode1On/image;imgMode1Off/image;"
-        data-vis-attrs3="group.mode2;oidMode2/id;valueMode2/number;imgMode2On/image;imgMode2Off/image;"
-        data-vis-attrs4="group.mode3;oidMode3/id;valueMode3/number;imgMode3On/image;imgMode3Off/image;"
-        data-vis-attrs5="group.mode4;oidMode4/id;valueMode4/number;imgMode4On/image;imgMode4Off/image;"
+        data-vis-attrs1="group.mode0;showMode0/checkbox;oidMode0/id;valueMode0/number;imgMode0On/image;imgMode0Off/image;"
+        data-vis-attrs2="group.mode1;showMode1/checkbox;oidMode1/id;valueMode1/number;imgMode1On/image;imgMode1Off/image;"
+        data-vis-attrs3="group.mode2;showMode2/checkbox;oidMode2/id;valueMode2/number;imgMode2On/image;imgMode2Off/image;"
+        data-vis-attrs4="group.mode3;showMode3/checkbox;oidMode3/id;valueMode3/number;imgMode3On/image;imgMode3Off/image;"
+        data-vis-attrs5="group.mode4;showMode4/checkbox;oidMode4/id;valueMode4/number;imgMode4On/image;imgMode4Off/image;"
         data-vis-set="vis-flexcontrol"
         data-vis-type="Control"
         data-vis-name="Flexible Control">
         <div class="vis-widget <%== this.data.attr('class') %>" style="width: 171px; height: 120px;" id="<%= this.data.attr('wid') %>">
 
-            <!-- Hintergrund Header -->
-            <div class="vis-widget vis-flexcontrol-control-header <%== this.data.attr('class') %>" style="background-color: black; overflow: visible; width: 170px; height: 30px; border: 1px solid rgb(136, 136, 136); left: 0px; top: 0px; z-index: 2;" id="<%= this.data.attr('wid') %>">
-                <div style="width: 100%; height: 0px; background-color: black;">
-                </div>
-                <div style="position: absolute; top: 2px; left: 15px; color: black;"></div>
-            </div>
-
-            <!-- Überschrift -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="top: 8px; left: 7px; width: 100px; height: 14px; color: rgb(255, 255, 255); z-index: 3; text-align: left; font-size: small;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <div data-oid="">
-                        <%== this.data.attr('headerText') %>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- istWert -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="top: 8px; left: 110px; width: 50px; height: 14px; color: rgb(255, 255, 255); z-index: 3; text-align: right; font-size: small; color: rgb(255, 255, 255);" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <div data-oid="<%== this.data.attr('oidValIst') %>">
-                        <%== vis.states[this.data.attr('oidValIst') + '.val'] %> <%== this.data.attr('valEinheit') %>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hintergrund Hauptbereich -->
-            <div class="vis-widget vis-flexcontrol-main <%== this.data.attr('class') %>" style="background-color: #333333; overflow: visible; width: 170px; height: 90px; border: 1px solid rgb(136, 136, 136); left: 0px; top: 30px; z-index: 1;" id="<%= this.data.attr('wid') %>">
-                <div style="width: 100%; height: 0px; background-color: black;">
-                </div>
-                <div style="position: absolute; top: 2px; left: 15px; color: black;"></div>
-            </div>
-            
-            <!-- Plus -->
-            <div class="vis-widget vis-flexcontrol-button <%== this.data.attr('class') %>" style="width: 20px; height: 20px; position: absolute; left: 145px; top: 40px; z-index: 3; font-size: medium;" id="<%= this.data.attr('wid') %>" data-oid="javascript.0.Heizung.Wohnzimmer_Soll" data-vis-step="0.5" data-val="">
-                <div class="vis-widget-body">
-                    <img style="vertical-align: middle; height: 100%;" alt="">+
-                </div>
-            </div>
-            
-            <!-- Button Plus 
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 22px; height: 22px; left: 145px; top: 40px; background-color: rgb(255, 255, 255); opacity: 0.6; z-index: 3;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                </div>
-            </div>-->
-            
-            <!-- Minus -->
-            <div class="vis-widget vis-flexcontrol-button <%== this.data.attr('class') %>" style="width: 20px; height: 20px; position: absolute; left: 120px; top: 40px; z-index: 3; font-size: medium;" id="<%= this.data.attr('wid') %>" data-oid="javascript.0.Heizung.Wohnzimmer_Soll" data-vis-step="-0.5" data-val="">
-                <div class="vis-widget-body">
-                    <img style="vertical-align: middle; height: 100%;" alt="">-
-                </div>
-            </div>
-    
-            <!-- Button Minus 
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 22px; height: 22px; left: 120px; top: 40px; background-color: rgb(255, 255, 255); opacity: 0.6; z-index: 3;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                </div>
-            </div>-->
-            
-            <!-- sollWert -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="top: 44px; left: 40px; width: 74px; height: 16px; z-index: 3; text-align: right; font-size: medium; color: rgb(255, 255, 255);" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <div data-oid="<%== this.data.attr('oidValSoll') %>">
-                        <%== vis.states[this.data.attr('oidValSoll') + '.val'] %> <%== this.data.attr('valEinheit') %>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ein / Aus -->
-            <div data-oid="sonoff.0.Fussbodenheizung1.POWER1" class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width: 30px; height: 30px; left: 7px; top: 40px; z-index: 2;" data-read-only="" data-min="" data-max="" data-url-true="" data-url-false="" data-oid-true="" data-oid-false="" data-oid-true-value="" data-oid-false-value="">
-                <div class="vis-widget-body">
-                        <img src="<%== this.data.attr('imgOn') %>" width="100%">
-                </div>
-            </div>
-
-            <!-- Modus 0 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 30px; height: 30px; left: 7px; top: 80px; z-index: 2;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <img src="<%== this.data.attr('imgMode0Off') %>" width="100%">
-                </div>
-            </div>
-
-            <!-- Modus 1 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 30px; height: 30px; left: 37px; top: 80px; z-index: 2;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <img src="<%== this.data.attr('imgMode1Off') %>" width="100%">
-                </div>
-            </div>
-
-            <!-- Modus 2 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 30px; height: 30px; left: 67px; top: 80px; z-index: 2;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <img src="<%== this.data.attr('imgMode2Off') %>" width="100%">
-                </div>
-            </div>
-
-            <!-- Modus 3 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 30px; height: 30px; left: 97px; top: 80px; z-index: 2;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <img src="<%== this.data.attr('imgMode3Off') %>" width="100%">
-                </div>
-            </div>
-
-            <!-- Modus 4 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" style="width: 30px; height: 30px; left: 127px; top: 80px; z-index: 2;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <img src="<%== this.data.attr('imgMode4Off') %>" width="100%">
-                </div>
-            </div>
-
-            <!-- Button Modus 0 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="left: 67px; top: 80px; width: 30px; height: 30px; z-index: 2; opacity: 0; display: none;">
-                <div class="vis-widget-body">
-                    <button style="width:100%; height:100%" data-oid="javascript.0.Heizung.Heizungsmodus" data-no-style="" data-val="0" data-ctrl-oid="javascript.0.Heizung.Heizungsmodus" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text"></span></button>
-                </div>
-            </div>
-
-            <!-- Button Modus 1 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="left: 37px; top: 80px; width: 30px; height: 30px; z-index: 2; opacity: 0; display: none;">
-                <div class="vis-widget-body">
-                    <button style="width:100%; height:100%" data-oid="javascript.0.Heizung.Heizungsmodus" data-no-style="" data-val="1" data-ctrl-oid="javascript.0.Heizung.Heizungsmodus" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text"></span></button>
-                </div>
-            </div>
-
-            <!-- Button Modus 2 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="left: 97px; top: 80px; width: 30px; height: 30px; z-index: 2; opacity: 0; display: none;">
-                <div class="vis-widget-body">
-                    <button style="width:100%; height:100%" data-oid="javascript.0.Heizung.Heizungsmodus" data-no-style="" data-val="2" data-ctrl-oid="javascript.0.Heizung.Heizungsmodus" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text"></span></button>
-                </div>
-            </div>
-
-            <!-- Button Modus 3 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="left: 127px; top: 80px; width: 30px; height: 30px; z-index: 2; opacity: 0; display: none;">
-                <div class="vis-widget-body">
-                    <button style="width:100%; height:100%" data-oid="javascript.0.Heizung.Heizungsmodus" data-no-style="" data-val="3" data-ctrl-oid="javascript.0.Heizung.Heizungsmodus" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text"></span></button>
-                </div>
-            </div>
-
-            <!-- Button Modus 4 -->
-            <div class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="left: 7px; top: 80px; width: 30px; height: 30px; z-index: 2; opacity: 0; display: none;">
-                <div class="vis-widget-body">
-                    <button style="width:100%; height:100%" data-oid="javascript.0.Heizung.Heizungsmodus" data-no-style="" data-val="4" data-ctrl-oid="javascript.0.Heizung.Heizungsmodus" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text"></span></button>
-                </div>
-            </div>
-
-            <!-- 
-            <div class="vis-widget <%== this.data.attr('class') %>" style="top: 44px; left: 40px; width: 74px; height: 16px; z-index: 3; text-align: right; font-size: medium; color: rgb(255, 255, 255); display: none;" id="<%= this.data.attr('wid') %>">
-                <div class="vis-widget-body">
-                    <div data-oid="javascript.0.Heizung.Wohnzimmer_Soll">
-                        Lvl 22
-                    </div>
-                </div>
-            </div>
-            <div data-oid="javascript.0.Heizung.Wohnzimmer_Boost" class="vis-widget <%== this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width: 30px; height: 30px; left: 127px; top: 80px; z-index: 2;" data-read-only="" data-min="" data-max="" data-url-true="" data-url-false="" data-oid-true="" data-oid-false="" data-oid-true-value="" data-oid-false-value="">
-                <div class="vis-widget-body">
-                        <img src="/vis.0/main/img/heizung/heizung-turbo-aus.png" width="100%">
-                </div>
-            </div>
-        -->
         </div>
+        <% vis.binds["vis-flexcontrol"].createWidget(this.data.wid, this.view, this.data, this.style); %>
     </script>
 
 
-
-
-
-
-<!-- 
+<!-- #region org -->   
+<!--
 <script id="tplVis-flexcontrolShowInstance"
         type="text/ejs"
         class="vis-tpl"
@@ -365,9 +209,7 @@ if (vis.editMode) {
         </div>
     </div>
 </script>
--->
 
-<!--
 <script id="tplVis-flexcontrolHelper"
         type="text/ejs"
         class="vis-tpl"
@@ -382,3 +224,4 @@ if (vis.editMode) {
     %></div>
 </script>
 -->
+<!-- #endregion -->
