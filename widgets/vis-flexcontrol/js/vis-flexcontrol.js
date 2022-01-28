@@ -248,7 +248,7 @@ if (data.oidMode1) {
 }
 
 $div.find('.imgMode1').on('click', function (e){
-    vis.setValue(data.oidMode1, data.valueMode1); 
+    vis.setValue(data.oidMode1, parseInt(data.valueMode1)); 
 });
 // #endregion
 
@@ -272,7 +272,7 @@ if (data.oidMode2) {
 }
 
 $div.find('.imgMode2').on('click', function (e){
-    vis.setValue(data.oidMode2, data.valueMode2); 
+    vis.setValue(data.oidMode2, parseInt(data.valueMode2)); 
 });
 // #endregion
 
@@ -296,7 +296,7 @@ if (data.oidMode3) {
 }
 
 $div.find('.imgMode3').on('click', function (e){
-    vis.setValue(data.oidMode3, data.valueMode3); 
+    vis.setValue(data.oidMode3, parseInt(data.valueMode3)); 
 });
 // #endregion
 
