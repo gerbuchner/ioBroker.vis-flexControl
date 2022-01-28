@@ -326,7 +326,6 @@ $div.find('.imgMode4').on('click', function (e){
 
 
 
-
 onChangeOO(null, vis.states[data.oidOnOff + '.val'], 0);
 onChangeIst(null, vis.states[data.oidValIst + '.val'], 0);
 onChangeSoll(null, vis.states[data.oidValSoll + '.val'], 0);
