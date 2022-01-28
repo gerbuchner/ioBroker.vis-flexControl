@@ -1,7 +1,7 @@
 <!--
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.4"
+    version: "0.0.5"
 
     Copyright 2022 Buchi temp1@act4you.de
 -->
@@ -108,8 +108,10 @@ if (vis.editMode) {
         /**
          * tplVis-flexcontrolShowInstance
          */
-         "oidValIst":             {"en": "Actual Value",                "de": "Istwert",                           "ru": ""},
-         "oidValSoll":            {"en": "Set Value",                   "de": "Sollwert",                          "ru": ""},
+         "oidValIst":          {"en": "Actual Value",                "de": "Istwert",                           "ru": ""},
+         "dacIst":             {"en": "Digits after comma",          "de": "Zeichen nach Komma",                "ru": ""},
+         "oidValSoll":         {"en": "Set Value",                   "de": "Sollwert",                          "ru": ""},
+         "dacSoll":            {"en": "Digits after comma",          "de": "Zeichen nach Komma",                "ru": ""},
          "valEinheit":         {"en": "Unit",                        "de": "Einheit",                           "ru": ""},
          "valStep":            {"en": "Step",                        "de": "Step",                              "ru": ""},
 
@@ -169,7 +171,7 @@ if (vis.editMode) {
         type="text/ejs"
         class="vis-tpl"
         data-vis-prev='<img src="widgets/vis-flexcontrol/img/vis-flexcontrol.png"></img>'
-        data-vis-attrs="headerText;oidValIst/id;oidValSoll/id;valEinheit;valStep;"
+        data-vis-attrs="headerText;oidValIst/id;dacIst;oidValSoll/id;dacSoll;valEinheit;valStep;"
         data-vis-attrs0="group.onoff;oidOnOff/id;imgOn/image;imgOff/image;"
         data-vis-attrs1="group.mode0;showMode0/checkbox;oidMode0/id;valueMode0/number;imgMode0On/image;imgMode0Off/image;"
         data-vis-attrs2="group.mode1;showMode1/checkbox;oidMode1/id;valueMode1/number;imgMode1On/image;imgMode1Off/image;"
@@ -184,7 +186,7 @@ if (vis.editMode) {
         </div>
         <% vis.binds["vis-flexcontrol"].createWidget(this.data.wid, this.view, this.data, this.style); %>
     </script>
-        
+
    
 <!-- #region org -->   
 <!--

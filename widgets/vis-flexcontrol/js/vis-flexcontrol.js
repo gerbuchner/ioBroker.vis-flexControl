@@ -1,7 +1,7 @@
 /*
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.4"
+    version: "0.0.5"
 
     Copyright 2022 Buchi temp1@act4you.de
 */
@@ -32,7 +32,7 @@ $.extend(
 
 // this code can be placed directly in vis-flexcontrol.html
 vis.binds["vis-flexcontrol"] = {
-    version: "0.0.4",
+    version: "0.0.5",
     showVersion: function () {
         if (vis.binds["vis-flexcontrol"].version) {
             console.log('Version vis-flexcontrol: ' + vis.binds["vis-flexcontrol"].version);
@@ -150,7 +150,7 @@ vis.binds["vis-flexcontrol"] = {
 
 // #region IstWert        
         function onChangeIst(e, newVal, oldVal) {
-            $div.find('.istWert').html(newVal + ' ' + data.valEinheit);
+            $div.find('.istWert').html(parseFloat(newVal).toFixed(data.dacIst) + ' ' + data.valEinheit);
         }
         if (data.oidValIst) {
             vis.states.bind(data.oidValIst + '.val', onChangeIst);
@@ -163,7 +163,7 @@ vis.binds["vis-flexcontrol"] = {
 
 // #region SollWert        
 function onChangeSoll(e, newVal, oldVal) {
-    $div.find('.sollWert').html(newVal + ' ' + data.valEinheit);
+    $div.find('.sollWert').html(parseFloat(newVal).toFixed(data.dacSoll) + ' ' + data.valEinheit);
 }
 if (data.oidValSoll) {
     vis.states.bind(data.oidValSoll + '.val', onChangeSoll);
@@ -328,6 +328,8 @@ $div.find('.imgMode4').on('click', function (e){
 
 
 onChangeOO(null, vis.states[data.oidOnOff + '.val'], 0);
+onChangeIst(null, vis.states[data.oidValIst + '.val'], 0);
+onChangeSoll(null, vis.states[data.oidValSoll + '.val'], 0);
 onChangeMode0(null, vis.states[data.oidMode0 + '.val'], 0);
 onChangeMode1(null, vis.states[data.oidMode1 + '.val'], 0);
 onChangeMode2(null, vis.states[data.oidMode2 + '.val'], 0);
