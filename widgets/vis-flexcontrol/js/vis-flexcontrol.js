@@ -1,7 +1,7 @@
 /*
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.3"
+    version: "0.0.4"
 
     Copyright 2022 Buchi temp1@act4you.de
 */
@@ -32,7 +32,7 @@ $.extend(
 
 // this code can be placed directly in vis-flexcontrol.html
 vis.binds["vis-flexcontrol"] = {
-    version: "0.0.3",
+    version: "0.0.4",
     showVersion: function () {
         if (vis.binds["vis-flexcontrol"].version) {
             console.log('Version vis-flexcontrol: ' + vis.binds["vis-flexcontrol"].version);
@@ -50,7 +50,7 @@ vis.binds["vis-flexcontrol"] = {
 
         var text = '';
         text += '<!-- Hintergrund Header -->';
-        text += '<div class="vis-widget vis-flexcontrol-control-header" style="background-color: #222222; overflow: visible; width: 170px; height: 30px; border: 1px solid rgb(136, 136, 136); left: 0px; top: 0px; z-index: 2;" id="' + widgetID + '">';
+        text += '<div class="vis-widget vis-flexcontrol-control-header ' + data.class + '" style="background-color: #222222; overflow: visible; width: 170px; height: 30px; border: 1px solid rgb(136, 136, 136); left: 0px; top: 0px; z-index: 2;" id="' + widgetID + '">';
         text += '    <div style="width: 100%; height: 0px; background-color: black;">';
         text += '    </div>';
         text += '    <div style="position: absolute; top: 2px; left: 15px; color: black;"></div>';
