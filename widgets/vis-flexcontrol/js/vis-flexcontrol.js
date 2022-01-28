@@ -1,7 +1,7 @@
 /*
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.2"
+    version: "0.0.3"
 
     Copyright 2022 Buchi temp1@act4you.de
 */
@@ -32,7 +32,7 @@ $.extend(
 
 // this code can be placed directly in vis-flexcontrol.html
 vis.binds["vis-flexcontrol"] = {
-    version: "0.0.2",
+    version: "0.0.3",
     showVersion: function () {
         if (vis.binds["vis-flexcontrol"].version) {
             console.log('Version vis-flexcontrol: ' + vis.binds["vis-flexcontrol"].version);
@@ -174,11 +174,11 @@ if (data.oidValSoll) {
 }
 
 $div.find('.sollMinus').on('click', function (e){
-    vis.setValue(data.oidValSoll, parseFloat(vis.states[data.oidValSoll + '.val']) - parseFloat(data.valStep)); 
+    vis.setValue(data.oidValSoll, (parseFloat(vis.states[data.oidValSoll + '.val']) - parseFloat(data.valStep)).toFixed(1)); 
 })
 
 $div.find('.sollPlus').on('click', function (e){
-    vis.setValue(data.oidValSoll, parseFloat(vis.states[data.oidValSoll + '.val']) + parseFloat(data.valStep)); 
+    vis.setValue(data.oidValSoll, (parseFloat(vis.states[data.oidValSoll + '.val']) + parseFloat(data.valStep)).toFixed(1)); 
 });
 
 // #endregion
