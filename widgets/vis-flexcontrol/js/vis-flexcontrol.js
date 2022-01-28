@@ -320,7 +320,7 @@ if (data.oidMode4) {
 }
 
 $div.find('.imgMode4').on('click', function (e){
-    vis.setValue(data.oidMode4, data.valueMode4); 
+    vis.setValue(data.oidMode4, parseInt(data.valueMode4)); 
 });
 // #endregion
 
