@@ -1,7 +1,7 @@
 /*
     ioBroker.vis vis-flexcontrol Widget-Set
 
-    version: "0.0.6"
+    version: "0.0.7"
 
     Copyright 2022 Buchi temp1@act4you.de
 */
@@ -32,7 +32,7 @@ $.extend(
 
 // this code can be placed directly in vis-flexcontrol.html
 vis.binds["vis-flexcontrol"] = {
-    version: "0.0.6",
+    version: "0.0.7",
     showVersion: function () {
         if (vis.binds["vis-flexcontrol"].version) {
             console.log('Version vis-flexcontrol: ' + vis.binds["vis-flexcontrol"].version);
@@ -223,7 +223,7 @@ if (data.oidMode0) {
 }
 
 $div.find('.imgMode0').on('click', function (e){
-    vis.setValue(data.oidMode0, data.valueMode0); 
+    vis.setValue(data.oidMode0, parseInt(data.valueMode0)); 
 });
 // #endregion
 
